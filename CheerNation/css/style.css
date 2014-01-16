@@ -1,0 +1,171 @@
+html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,figcaption{
+        margin: 0;
+        padding: 0;
+        }
+
+#logo img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
+	z-index: 2;
+}
+
+#space{
+	height: 80px;
+	background-color: #1c451c;
+}
+
+#buttons{
+
+}
+
+body{
+	background: url(../images/bg.png) repeat;
+}
+
+#placement{
+	height: 409px;
+	width: 600px;
+	background-color: #b1b1b1; /*#b1b1b1*/
+	margin: 38px 50px 60px 0;
+	float: right;
+}
+/*---------------------  Control Bar --------------------------*/
+#controlbar{
+	margin-top: 359px;
+	background-color: rgba(0,0,0,0.7);
+	height: 50px;
+}
+
+.controls{
+	margin-top: -15px;
+}
+
+#play{
+	margin-top: -12px;
+}
+
+#cam{
+	margin-top: 5px;
+}
+
+#bar{
+	margin-top: -13px;
+	margin-left: -20px;
+}
+
+#volume{
+	margin-top: -5px;
+	margin-left: -110px;
+}
+
+#rec{
+	margin-top: -5px;
+}
+
+ul{
+	list-style: none;
+}
+
+ul li{
+	float: left;
+}
+
+.micro_sub{
+	display: none;
+}
+
+.micro_menu{
+	display: inline-block;
+	
+}
+
+.micro_menu2{
+	/*margin-left: 20px;*/
+	display: inline-block;
+	float: right;
+}
+
+.micro_menu:hover ul{
+	display:block;
+	background-color: #b1b1b1;
+	width: 110px;
+	position: absolute;
+	margin-top: -40px;
+}
+
+/*----------------------------------------------------------------*/
+
+#main_border{
+	background-color: #272424;
+	height: 530px;
+	width: 1180px;
+	margin-top: 20px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#comments{
+	height: 460px;
+	width: 470px;
+	background-color: rgba(0,0,0,0.4);
+	margin-top: -5px;
+	margin-left: 30px;
+	color: #fffcfc;
+	font-family: Arial;
+	font-size: 14px;
+}
+
+#user_comment{
+	padding-left: 15px;
+	font-family: Arial;
+}
+
+
+#user{
+	font-family: 'Varsity', 'Arial Black', Arial;
+	color: #1c451c;
+	margin-left: 70px;
+	margin-top: -45px;
+}
+
+#username{
+	margin-bottom: 20px;
+	margin-top: 60px;
+}
+
+@font-face{
+	font-family: 'Varsity';
+	src: url(../fonts/PepRally.ttf);
+}
+
+#title{
+	font-family: 'Varsity', 'Arial Black', Arial;
+	text-align: center;
+	line-height: 60px;
+}
+
+textarea{
+	border: none;
+	background: #272424;
+    border-radius: 4px;
+    padding: 8px;
+    margin-left: 31px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    max-width: 405px;
+    max-height: 120px;
+}
+
+#submit{
+	float: right;
+	margin-right: 25px;
+	margin-top: -15px;
+}
+
+
+
+
+
