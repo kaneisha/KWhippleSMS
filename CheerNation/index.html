@@ -13,7 +13,7 @@
         		<img src="images/nationlogo.png" />
         	</div><!--logo-->
         	<video preload="auto" controls="controls" width="100%" id="vid" class="vids">
-        		<source src="videos/cheernation_1.webmhd.webm" type="video/webm" />
+        		<!-- <source src="videos/cheernation_1.webmhd.webm" type="video/webm" /> -->
         	</video>
             <div id="space">
             	<div id="buttons">
@@ -24,31 +24,60 @@
         </header>
 
         <body>
+    //     	<script type="text/javascript">
+    //     		var myDataRef = new Firebase('https://wm11417835l.firebaseio-demo.com/');
+    //     		$('#comments').keypress(function (e){
+    //     			if(e.keyCode == 13){
+    //     				var comment = $('#comments').val();
+    //     				myDataRef.push('User says ' + comment);
+    //     				$('#comments').val('');
+    //     			}
+    //     		});
+
+    //     		myDataRef.on('child_added', function(snapshot) {
+				//   var message = snapshot.val();
+				//   displayChatMessage(message.comments);
+				// });
+
+				//  function displayChatMessage(comments) {
+			 //        $('<div/>').text(comment).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+			 //        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+			 //      };
+    //     	</script>
         	<section id="main_content">
         		<div id="main_border" class="container">
         			
 	        		<div id="placement" class="two-columns">
+	        			<div id="flashContent">
+				            <script type="text/javascript">
+				                var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://");
+				                document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" );
+				            </script>
+				        </div>
 	        			<div id="controlbar">
 	        				<ul>
-	        					<li class="micro_menu"><img src="images/microphone.png" class="controls">
-	        						<ul class="micro_sub">
-			        					<li>Micro Option 1</li>
+	        					<li class="micro_menu"><img src="images/microphone.png" id="microphone" class="controls">
+	        						<ul class="micro_sub" id="mic">
+			        					<!-- <li>Micro Option 1</li>
 			        					<li>Micro Option 2</li>
-			        					<li>Micro Option 3</li>
+			        					<li>Micro Option 3</li> -->
 			        				</ul>
 			        			</li>
 			        			<li class="micro_menu"><img src="images/play.png" id="play"></li>
 			        			<li class="micro_menu"><img src="images/camera.png" id="cam">
-			        				<ul class="micro_sub">
-			        					<li>Cam Option 1</li>
+			        				<ul class="micro_sub" id="camera">
+			        					<!-- <li>Cam Option 1</li>
 			        					<li>Cam Option 2</li>
-			        					<li>Cam Option 3</li>
+			        					<li>Cam Option 3</li> -->
 			        				</ul>
 			        			</li>
+			        			<img src="images/ball.png" id="ball">
 			        			<li class="micro_menu"><img src="images/bar.png" id="bar"></li>
+
 			        		</ul>
 			        		<ul>
 			        			<li class="micro_menu2"><img src="images/volume.png" id="volume"></li>
+			        			<input type="range" value="0" min="0" max="100" id="vol" style="display:none"/>
 			        			<li class="micro_menu2"><img src="images/rec.png" id="rec"></li>
 			        		</ul>
 	        			</div>
@@ -59,7 +88,8 @@
 	        		</div>
         			<div id="comments" class="two-columns">
         				<textarea rows="8" cols="50"></textarea>
-        				<img src="images/button.png" id="submit">
+        				<input id="submit" name="submit" type="submit" value="Submit" />
+        				<!-- <img src="images/button.png" id="submit"> -->
         				<div id="username">
 	        				<img src="images/avatar.png">
 	        				<h1 id="user">Username235</h1>
@@ -68,6 +98,15 @@
         			</div>
         		</div>
 			</section>
+
+				<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                <script type="text/javascript" src="js/jsrender.min.js"></script>
+                <script type="text/javascript" src="js/swfobject.js"></script>
+        		<script type="text/javascript" src="js/sms_setup.js"></script>
+				<script type="text/javascript" src="js/main.js"></script>
+				<script type="text/javascript" src="js/proj.js"></script>
+				<script src='https://cdn.firebase.com/v0/firebase.js'></script>
+
         </body>
 
 </html>

@@ -17,7 +17,7 @@ html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,
 }
 
 #buttons{
-
+	float: right;
 }
 
 body{
@@ -33,7 +33,6 @@ body{
 }
 /*---------------------  Control Bar --------------------------*/
 #controlbar{
-	margin-top: 359px;
 	background-color: rgba(0,0,0,0.7);
 	height: 50px;
 }
@@ -55,9 +54,18 @@ body{
 	margin-left: -20px;
 }
 
+#ball{
+	position: absolute;
+	right: 436px;
+	top: 458px;
+}
+
 #volume{
 	margin-top: -5px;
 	margin-left: -110px;
+}
+#vol:hover #vol{
+	display: inline-block;
 }
 
 #rec{
@@ -87,7 +95,7 @@ ul li{
 	float: right;
 }
 
-.micro_menu:hover ul{
+.micro_menu ul li{
 	display:block;
 	background-color: #b1b1b1;
 	width: 110px;
@@ -95,6 +103,21 @@ ul li{
 	margin-top: -40px;
 }
 
+#vol{
+	-webkit-transform:rotate(90deg);       
+    -moz-transform:rotate(90deg);
+    -o-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    z-index: 0;
+    position: absolute;
+    right: 56px;
+    top: 381px;
+}
+
+#microphone{
+
+}
 /*----------------------------------------------------------------*/
 
 #main_border{
@@ -161,8 +184,23 @@ textarea{
 
 #submit{
 	float: right;
-	margin-right: 25px;
-	margin-top: -15px;
+	margin-right: 30px;
+	width:160px;
+	background: #1c451c;
+	color:#fff;
+	font-family: 'Arial Black', sans-serif;
+	font-size: 17pt;
+	height: 45px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: none;
+}
+
+#submit:hover{
+	background-color: #fff;
+	color:#1c451c;
+	border-color: #1c451c;
 }
 
 
