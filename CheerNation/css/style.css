@@ -80,8 +80,9 @@ ul li{
 	float: left;
 }
 
-.micro_sub{
-	display: none;
+.micro_sub li {
+	/*display: none;*/
+	background-color: #b1b1b1;
 }
 
 .micro_menu{
@@ -98,17 +99,18 @@ ul li{
 .micro_menu ul li{
 	display:block;
 	background-color: #b1b1b1;
-	width: 110px;
+	width: 120px;
 	position: absolute;
 	margin-top: -40px;
+	text-align: center;
 }
 
 #vol{
-	-webkit-transform:rotate(90deg);       
-    -moz-transform:rotate(90deg);
-    -o-transform:rotate(90deg);
-    -ms-transform:rotate(90deg);
-    transform:rotate(90deg);
+	-webkit-transform:rotate(270deg);       
+    -moz-transform:rotate(270deg);
+    -o-transform:rotate(270deg);
+    -ms-transform:rotate(270deg);
+    transform:rotate(270deg);
     z-index: 0;
     position: absolute;
     right: 56px;

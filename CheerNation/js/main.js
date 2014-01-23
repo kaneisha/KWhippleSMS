@@ -14,6 +14,7 @@ var recorder = false;
 var playing = false;
 var recording = false;
 var rec_tog = false;
+var camTog = false;
 
 	var flashReady = function(){
 		
@@ -26,7 +27,6 @@ var rec_tog = false;
 
          $('#play').click(function(){
 
-         	console.log('click this button');
 
  			if(!play){
  				playing = true;
@@ -52,9 +52,17 @@ var rec_tog = false;
         });     
 
         $("#cam").on('click', function(){
-        $("#microphone").css('margin-left', '-125px');
-        $("#play").css('margin-left', '-180px');
-        $("#cam").css('margin-left', '-190px');
+        // $("#microphone").css('margin-left', '-125px');
+        // $("#play").css('margin-left', '-180px');
+        $("#play").css('margin-left', '-230px');
+        $("#cam").css('margin-left', '-150px');
+        $("#bar").css('position', 'absolute');
+        $("#bar").css('top', '448px');
+        $("#bar").css('left', '700px');
+         $("#ball").css('z-index', '1');
+        $("#ball").css('position', 'absolute');
+
+
 
             camClick = true;
 
@@ -71,7 +79,14 @@ var rec_tog = false;
         }); 
 
         $("#microphone").on('click', function(){
-        $("#microphone").css('margin-left', '-130px');
+        // $("#microphone").css('margin-left', '-130px');
+        //$("#play").css('margin-left', '-270px');
+        //$("#cam").css('margin-left', '-150px');
+        $("#bar").css('position', 'absolute');
+        $("#bar").css('top', '448px');
+        $("#bar").css('left', '700px');
+         $("#ball").css('z-index', '1');
+        $("#ball").css('position', 'absolute');
         $(".micro_menu li").css('background-color', '#b1b1b1;')
             micClick = true;
 
@@ -95,7 +110,7 @@ var rec_tog = false;
        })
 
         var vol = $('#volume');
-        $('#volume').on('change', function() {
+        $('#vol').on('change', function() {
 
         		vol.val(flash.getVolume());
                 var vidVolume = $(this).val() / 100;
@@ -138,14 +153,58 @@ var rec_tog = false;
 		var seek = time;
 		//var duration = 10;
 		var moving = true;
+		
 
 		if(moving){
 			xPos = (seek / vidDuration) * 276;
-			$('#ball').css('left', xPos + 680);
+			//$('#ball').css('left', xPos + 680);
+			$('#ball').offset({left: xPos + 730});
 			
-		}
+		};
 	};
 
+	var userMove = false;
+	// $('#ball').on('mousedown', function(e){
+	// 			console.log('clicked');
+	// 			userMove = true;
+	// 			if(e.pageX < $('#ball').offset().left + 730){
+	// 				$('#ball').offset({left: e.pageX});
+	// 				}
+	// 				e.preventDefault();
+	// 		});
+				
+
+	// 		$('#ball').on('mouseup', function(e){
+	// 			var currentPos = ($('#ball').position().left / 730) * vidDuration;
+
+	// 			flash.setTime(currentPos);
+	// 		});
+
+	$('#ball').on('mousedown', function(e){
+		userMove = true;
+		seekMover();
+		// if(e.pageX < $('#ball').offset().left + 730){
+		// 		$('#ball').offset({left: e.pageX});
+		// 	}
+		// 	e.preventDefault();
+	});
+	$('#ball').on('mouseup', function(e){
+		userMove = false;
+	});
+
+	var seekMover = function(){
+		$('#ball').on('mousemove', function(e){
+			// if(e.pageX < $('#ball').offset().left + 730){
+			// 	
+			// }
+			if(userMove){
+				$('#ball').offset({left: e.pageX});
+			}
+			e.preventDefault();
+		});
+	}
+
+			
 	var getDuration = function(duration){
 		//var vidDuration = duration;
 		vidDuration = duration
@@ -165,7 +224,7 @@ var rec_tog = false;
 
 		if(showCam){
 			for(var i = 0, max = cams.length; i < max; i++){
-				$('.micro_menu').append('<li data-id="'+i+'">' + cams[i] + '</li>');
+				$('ul#camera').append('<li data-id="'+i+'">' + cams[i] + '</li>');
 				console.log(cameraPick);
 			}
 
@@ -186,7 +245,7 @@ var rec_tog = false;
 
 		if(showMic){
 			for(var i = 0, max = mics.length; i < max; i++){
-				$('.micro_menu').append('<li id="'+i+'">' + mics[i] + '</li>');
+				$('ul#mic').append('<li id="'+i+'">' + mics[i] + '</li>');
 				console.log("hi");
 
 			}
