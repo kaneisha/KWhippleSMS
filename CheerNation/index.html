@@ -5,6 +5,8 @@
                 <meta charset="utf-8" />
                 <link rel="stylesheet" href="css/style.css">
                 <link rel="stylesheet" href="css/skeleton.css" media="all">
+                <script src='https://cdn.firebase.com/js/simple-login/1.2.1/firebase-simple-login.js'></script>
+				<script src='https://cdn.firebase.com/v0/firebase.js'></script>
         </head>
 
         <header>
@@ -12,38 +14,24 @@
         	<!-- <div id="logo">
         		<img src="images/nationlogo.png" />
         	</div><!--logo-->
-        	<video preload="auto" controls="controls" width="100%" id="vid" class="vids">
+        	<video preload="auto" controls="controls" autoplay="autoplay" width="100%" id="vid" class="vids">
         		<!-- <source src="videos/cheernation_1.webmhd.webm" type="video/webm" /> -->
         	</video>
             <div id="space">
+            	<nav>
+            		<p></p>
+            	</nav>
             	<div id="buttons">
 	            	<img src="images/github.png" id="git">
-	            	<img src="images/fb.png" id="fb">
+	            	<img src="images/fb.png" id="twitter">
+
             	</div>
+            	<input id="logout" name="logout" type="button" value="Logout" />
             </div>                
         </header>
 
         <body>
-    //     	<script type="text/javascript">
-    //     		var myDataRef = new Firebase('https://wm11417835l.firebaseio-demo.com/');
-    //     		$('#comments').keypress(function (e){
-    //     			if(e.keyCode == 13){
-    //     				var comment = $('#comments').val();
-    //     				myDataRef.push('User says ' + comment);
-    //     				$('#comments').val('');
-    //     			}
-    //     		});
 
-    //     		myDataRef.on('child_added', function(snapshot) {
-				//   var message = snapshot.val();
-				//   displayChatMessage(message.comments);
-				// });
-
-				//  function displayChatMessage(comments) {
-			 //        $('<div/>').text(comment).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
-			 //        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-			 //      };
-    //     	</script>
         	<section id="main_content">
         		<div id="main_border" class="container">
         			
@@ -76,8 +64,11 @@
 
 			        		</ul>
 			        		<ul>
-			        			<li class="micro_menu2"><img src="images/volume.png" id="volume"></li>
-			        			<input type="range" value="100" min="0" max="100" id="vol" style="display:none"/>
+			        			<li class="micro_menu2"><img src="images/volume.png" id="volume">
+			        				<ul id="val_vol">
+			        					<li><input type="range" value="100" min="0" max="100" id="vol"/></li>
+			        				</ul>
+			        			</li>
 			        			<li class="micro_menu2"><img src="images/rec.png" id="rec"></li>
 			        		</ul>
 	        			</div>
@@ -87,14 +78,14 @@
 	        			<h1 style="color:#fff" id="title">Leave A Comment</h1>
 	        		</div>
         			<div id="comments" class="two-columns">
-        				<textarea rows="8" cols="50"></textarea>
+        				<textarea rows="8" cols="50" id="comments_input"></textarea>
         				<input id="submit" name="submit" type="submit" value="Submit" />
         				<!-- <img src="images/button.png" id="submit"> -->
-        				<div id="username">
+        				<!-- <div id="username">
 	        				<img src="images/avatar.png">
 	        				<h1 id="user">Username235</h1>
-	        			</div>
-        				<p id="user_comment">"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+	        			</div> -->
+        				<!-- <p id="user_comment"></p> -->
         			</div>
         		</div>
 			</section>
@@ -105,7 +96,6 @@
         		<script type="text/javascript" src="js/sms_setup.js"></script>
 				<script type="text/javascript" src="js/main.js"></script>
 				<script type="text/javascript" src="js/proj.js"></script>
-				<script src='https://cdn.firebase.com/v0/firebase.js'></script>
 
         </body>
 

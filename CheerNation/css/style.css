@@ -20,8 +20,30 @@ html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,
 	float: right;
 }
 
+#logout{
+	width:160px;
+	background: #fff;
+	color:#1c451c;
+	font-family: 'Arial Black', sans-serif;
+	font-size: 17pt;
+	height: 45px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: none;
+	margin-top: 25px;
+	float: right;
+}
+
 body{
 	background: url(../images/bg.png) repeat;
+}
+
+nav p{
+	color: white;
+	font-family: Arial;
+	float: right;
+
 }
 
 #placement{
@@ -64,9 +86,7 @@ body{
 	margin-top: -5px;
 	margin-left: -110px;
 }
-#vol:hover #vol{
-	display: inline-block;
-}
+
 
 #rec{
 	margin-top: -5px;
@@ -127,6 +147,7 @@ ul li{
 	height: 530px;
 	width: 1180px;
 	margin-top: 20px;
+	margin-bottom: 20px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -141,10 +162,21 @@ ul li{
 	color: #fffcfc;
 	font-family: Arial;
 	font-size: 14px;
+	overflow-y: scroll;
+}
+
+#comments img{
+	height: 50px;
+}
+
+#comments p{
+	padding-left: 25px;
+	padding-top: 10px;
 }
 
 #user_comment{
 	padding-left: 15px;
+	padding-right: 15px;
 	font-family: Arial;
 }
 
@@ -153,12 +185,13 @@ ul li{
 	font-family: 'Varsity', 'Arial Black', Arial;
 	color: #1c451c;
 	margin-left: 70px;
-	margin-top: -45px;
+	margin-top: -35px;
 }
 
 #username{
 	margin-bottom: 20px;
 	margin-top: 60px;
+	margin-left: 10px;
 }
 
 @font-face{
