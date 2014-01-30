@@ -18,20 +18,27 @@ html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,
 
 #buttons{
 	float: right;
+	/*margin-right: -70px;*/
 }
 
 #logout{
-	width:160px;
+	/*margin-top: 26px;
+	margin-right: -250px;
+	float: right;
+	color: white;
+	font-family: Arial;*/
+	width:100px;
 	background: #fff;
 	color:#1c451c;
 	font-family: 'Arial Black', sans-serif;
-	font-size: 17pt;
-	height: 45px;
+	font-size: 12pt;
+	height: 25px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	border: none;
-	margin-top: 25px;
+	margin-top: 23px;
+	margin-right: -295px;
 	float: right;
 }
 
@@ -43,6 +50,8 @@ nav p{
 	color: white;
 	font-family: Arial;
 	float: right;
+	margin-top: 25px;
+	margin-right: 190px;
 
 }
 
@@ -101,7 +110,6 @@ ul li{
 }
 
 .micro_sub li {
-	/*display: none;*/
 	background-color: #b1b1b1;
 }
 
@@ -116,13 +124,21 @@ ul li{
 	float: right;
 }
 
+.micro_menu ul{
+	
+	position: absolute;
+	margin-top: -103px;
+	padding-top: 5px;
+	
+}
+
 .micro_menu ul li{
 	display:block;
-	background-color: #b1b1b1;
+	background-color: rgba(65,65,65,0.5);
 	width: 120px;
-	position: absolute;
-	margin-top: -40px;
+	height: 60px;
 	text-align: center;
+	border-radius: 3px;
 }
 
 #vol{
@@ -135,6 +151,7 @@ ul li{
     position: absolute;
     right: 56px;
     top: 381px;
+    background-color: rgba(0,0,0,0.7);
 }
 
 #microphone{

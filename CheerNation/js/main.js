@@ -10,10 +10,12 @@ var auth = new FirebaseSimpleLogin(chatRef, function(error, user){
 	}else{
 		$('#git').click(function(){
 			auth.login('github');
+			loggedIn();
 		});
 
 		$('#twitter').click(function(){
 			auth.login('twitter');
+			//loggedIn();
 		});
 
 		$('#logout').hide();
@@ -37,7 +39,7 @@ var loggedIn = function(){
 	}
 	$('#buttons').hide();
 	$('#logout').show();
-	$('nav p').html('Welcome, ' + users.username);
+	$('nav p').html('Welcome, ' + users.username + ' | ');
 
 };
 
@@ -68,7 +70,7 @@ chatRef.on('child_added', function(snapshot){
 	var message = snapshot.val();
 	//displayChatMessage(message.comment, message.user_comment, message.avi);
 
-	console.log(message.image);
+	//console.log(message.image);
 
 	$('#comments').append('<div id="username"> <img src="' + message.image + '">' + '<h1 id="user">' + message.name + '</div>' + '<p>' + message.text + '</p>' );
 
@@ -123,6 +125,7 @@ var rec_tog = false;
 var camTog = false;
 var xPos = 0;
 var userMove = false;
+var micTog = false;
 
 	var flashReady = function(){
 		
@@ -134,6 +137,9 @@ var userMove = false;
 		var duration = 0;
 
          $('#play').click(function(){
+
+         	$("ul#camera li").css("display", "none");
+         	$("ul#mic li").css("display", "none");
 
 
  			if(!play){
@@ -159,16 +165,19 @@ var userMove = false;
 
         });     
 
+//---------------------------------- On Clicks ----------------------------------------------------//
         $("#cam").on('click', function(){
         // $("#microphone").css('margin-left', '-125px');
         // $("#play").css('margin-left', '-180px');
-        $("#play").css('margin-left', '-230px');
-        $("#cam").css('margin-left', '-150px');
+        // $("#play").css('margin-left', '-230px');
+        // $("#cam").css('margin-left', '-150px');
         $("#bar").css('position', 'absolute');
         $("#bar").css('top', '448px');
         $("#bar").css('left', '700px');
-         $("#ball").css('z-index', '1');
+        $("#ball").css('z-index', '1');
         $("#ball").css('position', 'absolute');
+        $("#ball").css('left', '703px');
+        $("ul#mic li").css("display", "none");
 
 
 
@@ -186,17 +195,22 @@ var userMove = false;
 
         }); 
 
-        $("#microphone").on('mouseover', function(){
-        // $("#microphone").css('margin-left', '-130px');
-        //$("#play").css('margin-left', '-270px');
-        //$("#cam").css('margin-left', '-150px');
+        $("#microphone").on('click', function(){
+
         $("#bar").css('position', 'absolute');
         $("#bar").css('top', '448px');
         $("#bar").css('left', '700px');
         $("#ball").css('z-index', '1');
         $("#ball").css('position', 'absolute');
-        $(".micro_menu li").css('background-color', '#b1b1b1;')
+        $("#ball").css('left', '703px');
+        $("ul#camera li").css("display", "none");
+       // $(".micro_menu li").css('background-color', '#b1b1b1;');
             micClick = true;
+            micTog = true;
+
+            if(!micTog){
+            	$("ul#mic li").css("display", "none");
+            }
 
            if(camConnect){
                 flash.connect('rtmp://localhost/SMSServer');
@@ -207,12 +221,6 @@ var userMove = false;
 
         }); 
 
-        $("#microphone").on('mouseout', function(){
-        	$(".micro_menu li").hide();
-        });
-        $(".micro_menu li").on('mouseover', function(){
-        	$(".micro_menu li").css("display", "block");
-        });
 
        $("#rec").on('click', function(){
        		playing = false;
@@ -222,7 +230,10 @@ var userMove = false;
        			videoRecord();
        		}
 
-       })
+       		$("ul#camera li").css("display", "none");
+         	$("ul#mic li").css("display", "none");
+
+       });
 
         var vol = $('#volume');
         $('#vol').on('change', function() {
@@ -234,8 +245,10 @@ var userMove = false;
 
         });
 
+//------------------------------------------ End On Clicks ----------------------------------------------//
 
-     };
+
+     }; //End Flash Ready
 
   	var connected = function(success,error){
 			console.log(success);
@@ -322,42 +335,55 @@ var userMove = false;
 
 	var cameraOps = function(){
 		var cams = flash.getCameras();
+		$('ul#camera').empty();
 		console.log(cams);
 
 		if(showCam){
 			for(var i = 0, max = cams.length; i < max; i++){
-				$('ul#camera').append('<li data-id="'+i+'"><a>' + cams[i] + '</a></li>');
+				$('ul#camera').append('<li data-id="'+i+'">' + cams[i] + '</li>');
 				console.log(cameraPick);
 			}
+			// '<li data-id="'+i+'"><a>' + cams[i] + '</a></li>'
 
-			//showCam = true;
+			//showCam = false;
 		}
 
-		$(".micro_menu li").on('click', function(){
+		$("ul#camera li").on('click', function(){
         	//e.preventDefault();
+        	//.micro_menu li
         	cameraPick = $(this).attr("data-id");
         	console.log(cameraPick);
+        	if(camClick){
+        		$("ul#camera li").css("display", "none");
+        	}
         });
 
 	}
 
 	var micOps = function(){
 		var mics = flash.getMicrophones();
-		console.log(mics);
+		$('ul#mic').empty();
+		//console.log(mics);
 
 		if(showMic){
 			for(var i = 0, max = mics.length; i < max; i++){
-				$('ul#mic').append('<li id="'+i+'">' + mics[i] + '</li>');
-				console.log("hi");
+				$('ul#mic').append('<li id="'+i+'">' + mics[i] + '</a></li>');
+				//console.log("hi");
+
+				// '<li id="'+i+'">' + mics[i] + '</li>'
 
 			}
 
 			//showMic = true;
 		}
 
-		$(".micro_menu li").on('click', function(){
+		$("ul#mic li").on('click', function(){
         	micPick = $(this).attr("id");
         	console.log(micPick);
+        	if(micClick){
+        		$("ul#mic li").css("display", "none");
+        	}
+        	//micTog = false;
         });
 
 	}
